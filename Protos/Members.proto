@@ -17,10 +17,9 @@ message CreateMemberRequest {
 	string password = 2;
 }
 message CreateMemberResponse {
-	bool success = 1;
-	string memberID = 2;
-	Cookie accessToken = 3;
-	string HashKey = 4;
+	string memberID = 1;
+	Cookie accessToken = 2;
+	string HashKey = 3;
 }
 
 
@@ -29,10 +28,9 @@ message LoginMemberRequest {
 	string password = 2;
 }
 message LoginMemberResponse {
-	bool success = 1;
-	string memberID = 2;
-	Cookie accessToken = 3;
-	string HashKey = 4;
+	string memberID = 1;
+	Cookie accessToken = 2;
+	string HashKey = 3;
 }
 
 
