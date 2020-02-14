@@ -6,6 +6,7 @@ syntax = "proto3";
 service MembersService {
 	rpc CreateMember(CreateMemberRequest) returns (CreateMemberResponse) {}
 	rpc LoginMember(LoginMemberRequest) returns (LoginMemberResponse) {}
+	rpc GetMember(GetMemberRequest) returns (GetMemberResponse) {}
 	rpc CheckAccessToken(CheckAccessTokenRequest) returns (CheckAccessTokenResponse) {}
 }
 
@@ -34,6 +35,10 @@ message LoginMemberResponse {
 }
 
 
+message GetMemberRequest {string memberID = 1;}
+message GetMemberResponse {Member member = 1;}
+
+
 message CheckAccessTokenRequest {
 	string accessToken = 1;
 }
@@ -50,4 +55,10 @@ message CheckAccessTokenResponse {
 message	Cookie {
 	string value = 1;
 	int64 expiration = 2;
+}
+message	Member {
+	string ID = 1;
+	string email = 2;
+	string publicKey = 3;
+	string privateKey = 4;
 }
