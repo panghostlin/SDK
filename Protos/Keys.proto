@@ -8,7 +8,7 @@ service KeysService {
 	rpc CheckPassword(CheckPasswordRequest) returns (CheckPasswordResponse) {}
 	rpc GetPublicKey(GetPublicKeyRequest) returns (GetPublicKeyResponse) {}
 	rpc GetPrivateKey(GetPrivateKeyRequest) returns (GetPrivateKeyResponse) {}
-	rpc GetKey(GetKeyRequest) returns (GetKeyResponse) {}
+	rpc GetKeys(GetKeysRequest) returns (GetKeysResponse) {}
 
 	rpc EncryptPicture(stream EncryptPictureRequest) returns (stream EncryptPictureResponse) {}
 	rpc DecryptPicture(stream DecryptPictureRequest) returns (stream DecryptPictureResponse) {}
@@ -29,8 +29,8 @@ message GetPublicKeyResponse {string publicKey = 1;}
 message GetPrivateKeyRequest {string memberID = 1; string hashKey = 2;}
 message GetPrivateKeyResponse {string privateKey = 1;}
 
-message GetKeyRequest {string memberID = 1; string hashKey = 2;}
-message GetKeyResponse {string publicKey = 1; string privateKey = 2;}
+message GetKeysRequest {string memberID = 1; string hashKey = 2;}
+message GetKeysResponse {string publicKey = 1; string privateKey = 2;}
 
 /**************************************************************************
 **	RPCS - Pictures
