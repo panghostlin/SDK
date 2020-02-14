@@ -24,6 +24,9 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+//*************************************************************************
+//*	RPCS - Members
+//************************************************************************
 type CreateKeysRequest struct {
 	Password             string   `protobuf:"bytes,1,opt,name=password,proto3" json:"password,omitempty"`
 	MemberID             string   `protobuf:"bytes,2,opt,name=memberID,proto3" json:"memberID,omitempty"`
@@ -274,6 +277,189 @@ func (m *GetPublicKeyResponse) GetPublicKey() string {
 	return ""
 }
 
+type GetPrivateKeyRequest struct {
+	MemberID             string   `protobuf:"bytes,1,opt,name=memberID,proto3" json:"memberID,omitempty"`
+	HashKey              string   `protobuf:"bytes,2,opt,name=hashKey,proto3" json:"hashKey,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetPrivateKeyRequest) Reset()         { *m = GetPrivateKeyRequest{} }
+func (m *GetPrivateKeyRequest) String() string { return proto.CompactTextString(m) }
+func (*GetPrivateKeyRequest) ProtoMessage()    {}
+func (*GetPrivateKeyRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d1dcf5ddb16cc394, []int{6}
+}
+
+func (m *GetPrivateKeyRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetPrivateKeyRequest.Unmarshal(m, b)
+}
+func (m *GetPrivateKeyRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetPrivateKeyRequest.Marshal(b, m, deterministic)
+}
+func (m *GetPrivateKeyRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetPrivateKeyRequest.Merge(m, src)
+}
+func (m *GetPrivateKeyRequest) XXX_Size() int {
+	return xxx_messageInfo_GetPrivateKeyRequest.Size(m)
+}
+func (m *GetPrivateKeyRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetPrivateKeyRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetPrivateKeyRequest proto.InternalMessageInfo
+
+func (m *GetPrivateKeyRequest) GetMemberID() string {
+	if m != nil {
+		return m.MemberID
+	}
+	return ""
+}
+
+func (m *GetPrivateKeyRequest) GetHashKey() string {
+	if m != nil {
+		return m.HashKey
+	}
+	return ""
+}
+
+type GetPrivateKeyResponse struct {
+	PrivateKey           string   `protobuf:"bytes,1,opt,name=privateKey,proto3" json:"privateKey,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetPrivateKeyResponse) Reset()         { *m = GetPrivateKeyResponse{} }
+func (m *GetPrivateKeyResponse) String() string { return proto.CompactTextString(m) }
+func (*GetPrivateKeyResponse) ProtoMessage()    {}
+func (*GetPrivateKeyResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d1dcf5ddb16cc394, []int{7}
+}
+
+func (m *GetPrivateKeyResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetPrivateKeyResponse.Unmarshal(m, b)
+}
+func (m *GetPrivateKeyResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetPrivateKeyResponse.Marshal(b, m, deterministic)
+}
+func (m *GetPrivateKeyResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetPrivateKeyResponse.Merge(m, src)
+}
+func (m *GetPrivateKeyResponse) XXX_Size() int {
+	return xxx_messageInfo_GetPrivateKeyResponse.Size(m)
+}
+func (m *GetPrivateKeyResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetPrivateKeyResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetPrivateKeyResponse proto.InternalMessageInfo
+
+func (m *GetPrivateKeyResponse) GetPrivateKey() string {
+	if m != nil {
+		return m.PrivateKey
+	}
+	return ""
+}
+
+type GetKeyRequest struct {
+	MemberID             string   `protobuf:"bytes,1,opt,name=memberID,proto3" json:"memberID,omitempty"`
+	HashKey              string   `protobuf:"bytes,2,opt,name=hashKey,proto3" json:"hashKey,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetKeyRequest) Reset()         { *m = GetKeyRequest{} }
+func (m *GetKeyRequest) String() string { return proto.CompactTextString(m) }
+func (*GetKeyRequest) ProtoMessage()    {}
+func (*GetKeyRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d1dcf5ddb16cc394, []int{8}
+}
+
+func (m *GetKeyRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetKeyRequest.Unmarshal(m, b)
+}
+func (m *GetKeyRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetKeyRequest.Marshal(b, m, deterministic)
+}
+func (m *GetKeyRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetKeyRequest.Merge(m, src)
+}
+func (m *GetKeyRequest) XXX_Size() int {
+	return xxx_messageInfo_GetKeyRequest.Size(m)
+}
+func (m *GetKeyRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetKeyRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetKeyRequest proto.InternalMessageInfo
+
+func (m *GetKeyRequest) GetMemberID() string {
+	if m != nil {
+		return m.MemberID
+	}
+	return ""
+}
+
+func (m *GetKeyRequest) GetHashKey() string {
+	if m != nil {
+		return m.HashKey
+	}
+	return ""
+}
+
+type GetKeyResponse struct {
+	PublicKey            string   `protobuf:"bytes,1,opt,name=publicKey,proto3" json:"publicKey,omitempty"`
+	PrivateKey           string   `protobuf:"bytes,2,opt,name=privateKey,proto3" json:"privateKey,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetKeyResponse) Reset()         { *m = GetKeyResponse{} }
+func (m *GetKeyResponse) String() string { return proto.CompactTextString(m) }
+func (*GetKeyResponse) ProtoMessage()    {}
+func (*GetKeyResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d1dcf5ddb16cc394, []int{9}
+}
+
+func (m *GetKeyResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetKeyResponse.Unmarshal(m, b)
+}
+func (m *GetKeyResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetKeyResponse.Marshal(b, m, deterministic)
+}
+func (m *GetKeyResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetKeyResponse.Merge(m, src)
+}
+func (m *GetKeyResponse) XXX_Size() int {
+	return xxx_messageInfo_GetKeyResponse.Size(m)
+}
+func (m *GetKeyResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetKeyResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetKeyResponse proto.InternalMessageInfo
+
+func (m *GetKeyResponse) GetPublicKey() string {
+	if m != nil {
+		return m.PublicKey
+	}
+	return ""
+}
+
+func (m *GetKeyResponse) GetPrivateKey() string {
+	if m != nil {
+		return m.PrivateKey
+	}
+	return ""
+}
+
+//*************************************************************************
+//*	RPCS - Pictures
+//************************************************************************
 type EncryptPictureRequest struct {
 	Chunk                []byte   `protobuf:"bytes,1,opt,name=chunk,proto3" json:"chunk,omitempty"`
 	MemberID             string   `protobuf:"bytes,2,opt,name=memberID,proto3" json:"memberID,omitempty"`
@@ -286,7 +472,7 @@ func (m *EncryptPictureRequest) Reset()         { *m = EncryptPictureRequest{} }
 func (m *EncryptPictureRequest) String() string { return proto.CompactTextString(m) }
 func (*EncryptPictureRequest) ProtoMessage()    {}
 func (*EncryptPictureRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d1dcf5ddb16cc394, []int{6}
+	return fileDescriptor_d1dcf5ddb16cc394, []int{10}
 }
 
 func (m *EncryptPictureRequest) XXX_Unmarshal(b []byte) error {
@@ -333,7 +519,7 @@ func (m *EncryptPictureResponse) Reset()         { *m = EncryptPictureResponse{}
 func (m *EncryptPictureResponse) String() string { return proto.CompactTextString(m) }
 func (*EncryptPictureResponse) ProtoMessage()    {}
 func (*EncryptPictureResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d1dcf5ddb16cc394, []int{7}
+	return fileDescriptor_d1dcf5ddb16cc394, []int{11}
 }
 
 func (m *EncryptPictureResponse) XXX_Unmarshal(b []byte) error {
@@ -382,7 +568,7 @@ func (m *DecryptPictureRequest) Reset()         { *m = DecryptPictureRequest{} }
 func (m *DecryptPictureRequest) String() string { return proto.CompactTextString(m) }
 func (*DecryptPictureRequest) ProtoMessage()    {}
 func (*DecryptPictureRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d1dcf5ddb16cc394, []int{8}
+	return fileDescriptor_d1dcf5ddb16cc394, []int{12}
 }
 
 func (m *DecryptPictureRequest) XXX_Unmarshal(b []byte) error {
@@ -443,7 +629,7 @@ func (m *DecryptPictureResponse) Reset()         { *m = DecryptPictureResponse{}
 func (m *DecryptPictureResponse) String() string { return proto.CompactTextString(m) }
 func (*DecryptPictureResponse) ProtoMessage()    {}
 func (*DecryptPictureResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d1dcf5ddb16cc394, []int{9}
+	return fileDescriptor_d1dcf5ddb16cc394, []int{13}
 }
 
 func (m *DecryptPictureResponse) XXX_Unmarshal(b []byte) error {
@@ -485,6 +671,10 @@ func init() {
 	proto.RegisterType((*CheckPasswordResponse)(nil), "CheckPasswordResponse")
 	proto.RegisterType((*GetPublicKeyRequest)(nil), "GetPublicKeyRequest")
 	proto.RegisterType((*GetPublicKeyResponse)(nil), "GetPublicKeyResponse")
+	proto.RegisterType((*GetPrivateKeyRequest)(nil), "GetPrivateKeyRequest")
+	proto.RegisterType((*GetPrivateKeyResponse)(nil), "GetPrivateKeyResponse")
+	proto.RegisterType((*GetKeyRequest)(nil), "GetKeyRequest")
+	proto.RegisterType((*GetKeyResponse)(nil), "GetKeyResponse")
 	proto.RegisterType((*EncryptPictureRequest)(nil), "EncryptPictureRequest")
 	proto.RegisterType((*EncryptPictureResponse)(nil), "EncryptPictureResponse")
 	proto.RegisterType((*DecryptPictureRequest)(nil), "DecryptPictureRequest")
@@ -494,31 +684,36 @@ func init() {
 func init() { proto.RegisterFile("Keys.proto", fileDescriptor_d1dcf5ddb16cc394) }
 
 var fileDescriptor_d1dcf5ddb16cc394 = []byte{
-	// 375 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x94, 0xcf, 0x4e, 0xc2, 0x40,
-	0x10, 0xc6, 0x5b, 0xf0, 0x1f, 0x23, 0x1a, 0x1d, 0xda, 0x42, 0x1a, 0x0f, 0x66, 0x4f, 0x9c, 0x36,
-	0xa2, 0x26, 0x9e, 0x4c, 0x48, 0xc0, 0x10, 0xd2, 0xc4, 0x10, 0x7c, 0x02, 0xa8, 0x93, 0x94, 0x20,
-	0xb4, 0x76, 0x5b, 0x4d, 0x1f, 0xd5, 0xb7, 0x31, 0x85, 0x6d, 0x69, 0xcb, 0x46, 0x0f, 0x7a, 0x63,
-	0x66, 0x33, 0xbf, 0xef, 0x63, 0xe6, 0x4b, 0x01, 0x1c, 0x4a, 0x04, 0x0f, 0x42, 0x3f, 0xf2, 0x99,
-	0x03, 0x97, 0x83, 0x90, 0x66, 0x11, 0xa5, 0xbd, 0x29, 0xbd, 0xc7, 0x24, 0x22, 0xb4, 0xe1, 0x24,
-	0x98, 0x09, 0xf1, 0xe9, 0x87, 0xaf, 0x1d, 0xfd, 0x5a, 0xef, 0x36, 0xa6, 0x79, 0x9d, 0xbe, 0xad,
-	0x68, 0x35, 0xa7, 0x70, 0x3c, 0xec, 0xd4, 0xb6, 0x6f, 0x59, 0xcd, 0x38, 0x60, 0x11, 0x26, 0x02,
-	0x7f, 0x2d, 0x08, 0x3b, 0x70, 0xec, 0xcd, 0x84, 0xe7, 0x50, 0x22, 0x61, 0x59, 0xc9, 0x9e, 0xc1,
-	0x18, 0x78, 0xe4, 0x2e, 0x27, 0x12, 0xfe, 0x57, 0xfd, 0x1e, 0x98, 0x15, 0xde, 0xaf, 0x16, 0x7a,
-	0xd0, 0x1a, 0x51, 0x34, 0x89, 0xe7, 0x6f, 0x0b, 0xd7, 0xa1, 0xa4, 0xe0, 0x20, 0x57, 0xd1, 0x2b,
-	0x2a, 0xf7, 0x60, 0x94, 0x47, 0xa4, 0xc8, 0x15, 0x34, 0x82, 0xac, 0x29, 0x87, 0x76, 0x0d, 0x36,
-	0x06, 0xf3, 0x69, 0xed, 0x86, 0x49, 0x10, 0x4d, 0x16, 0x6e, 0x14, 0x87, 0x94, 0x49, 0x19, 0x70,
-	0xe8, 0x7a, 0xf1, 0x7a, 0xb9, 0x19, 0x69, 0x4e, 0xb7, 0xc5, 0x8f, 0x7f, 0xb3, 0x0f, 0x56, 0x15,
-	0x25, 0x2d, 0xa8, 0x59, 0x17, 0x50, 0x5f, 0x52, 0x22, 0x31, 0xe9, 0x4f, 0x16, 0x83, 0x39, 0xa4,
-	0x7f, 0x31, 0x93, 0xc1, 0xeb, 0x39, 0xbc, 0xb8, 0xec, 0x83, 0xf2, 0xb2, 0xfb, 0x60, 0x55, 0x65,
-	0xa5, 0x71, 0x49, 0xd1, 0x77, 0x94, 0xdc, 0x49, 0xad, 0xe0, 0xe4, 0xf6, 0xab, 0x06, 0xa7, 0x69,
-	0xb8, 0x5e, 0x28, 0xfc, 0x58, 0xb8, 0x84, 0x0f, 0x00, 0xbb, 0xc4, 0x21, 0xf2, 0xbd, 0x2c, 0xdb,
-	0x2d, 0xbe, 0x1f, 0x49, 0xa6, 0x61, 0x1f, 0xce, 0x4a, 0x51, 0x41, 0x93, 0xab, 0xa2, 0x68, 0x5b,
-	0x5c, 0x99, 0x28, 0xa6, 0xe1, 0x23, 0x34, 0x8b, 0x31, 0x40, 0x83, 0x2b, 0x82, 0x64, 0x9b, 0x5c,
-	0x95, 0x15, 0xa6, 0xe1, 0x08, 0xce, 0xcb, 0x47, 0x44, 0x8b, 0x2b, 0x03, 0x62, 0xb7, 0xb9, 0xfa,
-	0xda, 0x4c, 0xeb, 0xea, 0x37, 0x7a, 0x0a, 0x2a, 0x2f, 0x15, 0x2d, 0xae, 0x3c, 0xae, 0xdd, 0xe6,
-	0xea, 0xed, 0x6f, 0x41, 0xf3, 0xa3, 0xcd, 0x17, 0xe1, 0xee, 0x3b, 0x00, 0x00, 0xff, 0xff, 0x78,
-	0x0e, 0x30, 0xaa, 0x1f, 0x04, 0x00, 0x00,
+	// 458 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x94, 0x61, 0x6b, 0xd4, 0x40,
+	0x10, 0x86, 0x93, 0x9c, 0x56, 0x3b, 0xb6, 0xa7, 0x4e, 0x93, 0xf4, 0x58, 0x44, 0x64, 0x3f, 0x15,
+	0x84, 0xc5, 0xaa, 0xd0, 0x4f, 0xc2, 0x41, 0x5b, 0x8e, 0x12, 0x29, 0xc7, 0xf9, 0x0b, 0xee, 0xe2,
+	0x40, 0xc2, 0xd9, 0x4b, 0xdc, 0x24, 0x95, 0xfc, 0x43, 0x7f, 0x96, 0xa4, 0xbb, 0xc9, 0x65, 0x73,
+	0x8b, 0x16, 0xce, 0x6f, 0x99, 0xd9, 0xec, 0x33, 0x6f, 0x76, 0xdf, 0x37, 0x00, 0x11, 0xd5, 0x85,
+	0xc8, 0x65, 0x56, 0x66, 0x3c, 0x82, 0xd7, 0x97, 0x92, 0x96, 0x25, 0x35, 0xbd, 0x05, 0xfd, 0xac,
+	0xa8, 0x28, 0x91, 0xc1, 0xf3, 0x7c, 0x59, 0x14, 0xbf, 0x32, 0xf9, 0x7d, 0xe2, 0xbe, 0x73, 0xcf,
+	0x0e, 0x17, 0x5d, 0xdd, 0xac, 0xdd, 0xd1, 0xdd, 0x8a, 0xe4, 0xcd, 0xd5, 0xc4, 0x53, 0x6b, 0x6d,
+	0xcd, 0x05, 0x60, 0x1f, 0x56, 0xe4, 0xd9, 0xa6, 0x20, 0x9c, 0xc0, 0xb3, 0x64, 0x59, 0x24, 0x11,
+	0xd5, 0x1a, 0xd6, 0x96, 0xfc, 0x16, 0xfc, 0xcb, 0x84, 0xe2, 0xf5, 0x5c, 0xc3, 0xf7, 0x9d, 0x7f,
+	0x0e, 0xc1, 0x80, 0xf7, 0x4f, 0x09, 0xe7, 0x70, 0x32, 0xa3, 0x72, 0x5e, 0xad, 0x7e, 0xa4, 0x71,
+	0x44, 0x75, 0x4f, 0x41, 0x37, 0xc5, 0x1d, 0x4c, 0xf9, 0x0c, 0xbe, 0xb9, 0x45, 0x0f, 0x79, 0x03,
+	0x87, 0x79, 0xdb, 0xd4, 0x9b, 0xb6, 0x0d, 0xfe, 0x55, 0xed, 0x92, 0xe9, 0xbd, 0x3a, 0x9f, 0x47,
+	0x4c, 0xea, 0xcb, 0xf6, 0x4c, 0xd9, 0x17, 0x10, 0x0c, 0x68, 0x5a, 0xc4, 0x5b, 0x80, 0xbc, 0xeb,
+	0x6a, 0x60, 0xaf, 0xc3, 0xaf, 0xe1, 0x78, 0x46, 0xe5, 0xde, 0xf3, 0x6f, 0x61, 0xdc, 0x62, 0x1e,
+	0xf3, 0xf5, 0x03, 0x59, 0xde, 0x8e, 0xac, 0x1b, 0x08, 0xae, 0x37, 0xb1, 0xac, 0xf3, 0x72, 0x9e,
+	0xc6, 0x65, 0x25, 0xa9, 0x95, 0xe7, 0xc3, 0xd3, 0x38, 0xa9, 0x36, 0xeb, 0x07, 0xe4, 0xd1, 0x42,
+	0x15, 0x7f, 0x35, 0xc1, 0x14, 0xc2, 0x21, 0x4a, 0x4b, 0xb4, 0xb3, 0x5e, 0xc1, 0x68, 0xdd, 0x69,
+	0x6a, 0x1e, 0x79, 0x05, 0xc1, 0x15, 0xfd, 0x17, 0x31, 0x2d, 0x7c, 0xd4, 0xc1, 0xfb, 0x67, 0xfa,
+	0xc4, 0x3c, 0xd3, 0x29, 0x84, 0xc3, 0xb1, 0x5a, 0xb8, 0xa6, 0xb8, 0x5b, 0x4a, 0xa7, 0xc4, 0xeb,
+	0x29, 0xf9, 0xf8, 0x7b, 0x04, 0x2f, 0x9a, 0xe8, 0x7d, 0x23, 0x79, 0x9f, 0xc6, 0x84, 0x17, 0x00,
+	0xdb, 0x3c, 0x22, 0x8a, 0x9d, 0xa4, 0xb3, 0x13, 0xb1, 0x1b, 0x58, 0xee, 0xe0, 0x14, 0x8e, 0x8d,
+	0x20, 0x61, 0x20, 0x6c, 0x41, 0x65, 0xa1, 0xb0, 0xe6, 0x8d, 0x3b, 0xf8, 0x05, 0x8e, 0xfa, 0x21,
+	0x41, 0x5f, 0x58, 0x62, 0xc6, 0x02, 0x61, 0x4b, 0x92, 0x12, 0x60, 0xf8, 0x1b, 0xd5, 0x9b, 0xc3,
+	0xf4, 0xb0, 0x50, 0x58, 0x63, 0xc0, 0x1d, 0x7c, 0x0f, 0x07, 0xca, 0xa1, 0x38, 0x16, 0x86, 0xe3,
+	0xd9, 0x4b, 0x61, 0x5a, 0x97, 0x3b, 0x38, 0x83, 0xb1, 0xe9, 0x19, 0x0c, 0x85, 0xd5, 0x8f, 0xec,
+	0x54, 0xd8, 0xcd, 0xc5, 0x9d, 0x33, 0xf7, 0x83, 0xdb, 0x80, 0xcc, 0x3b, 0xc4, 0x50, 0x58, 0xbd,
+	0xc4, 0x4e, 0x85, 0xfd, 0xb2, 0x15, 0x68, 0x75, 0xf0, 0xf0, 0x7b, 0xfe, 0xf4, 0x27, 0x00, 0x00,
+	0xff, 0xff, 0xc1, 0xa1, 0x48, 0x2a, 0xac, 0x05, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -536,6 +731,8 @@ type KeysServiceClient interface {
 	CreateKeys(ctx context.Context, in *CreateKeysRequest, opts ...grpc.CallOption) (*CreateKeysResponse, error)
 	CheckPassword(ctx context.Context, in *CheckPasswordRequest, opts ...grpc.CallOption) (*CheckPasswordResponse, error)
 	GetPublicKey(ctx context.Context, in *GetPublicKeyRequest, opts ...grpc.CallOption) (*GetPublicKeyResponse, error)
+	GetPrivateKey(ctx context.Context, in *GetPrivateKeyRequest, opts ...grpc.CallOption) (*GetPrivateKeyResponse, error)
+	GetKey(ctx context.Context, in *GetKeyRequest, opts ...grpc.CallOption) (*GetKeyResponse, error)
 	EncryptPicture(ctx context.Context, opts ...grpc.CallOption) (KeysService_EncryptPictureClient, error)
 	DecryptPicture(ctx context.Context, opts ...grpc.CallOption) (KeysService_DecryptPictureClient, error)
 }
@@ -569,6 +766,24 @@ func (c *keysServiceClient) CheckPassword(ctx context.Context, in *CheckPassword
 func (c *keysServiceClient) GetPublicKey(ctx context.Context, in *GetPublicKeyRequest, opts ...grpc.CallOption) (*GetPublicKeyResponse, error) {
 	out := new(GetPublicKeyResponse)
 	err := c.cc.Invoke(ctx, "/KeysService/GetPublicKey", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keysServiceClient) GetPrivateKey(ctx context.Context, in *GetPrivateKeyRequest, opts ...grpc.CallOption) (*GetPrivateKeyResponse, error) {
+	out := new(GetPrivateKeyResponse)
+	err := c.cc.Invoke(ctx, "/KeysService/GetPrivateKey", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keysServiceClient) GetKey(ctx context.Context, in *GetKeyRequest, opts ...grpc.CallOption) (*GetKeyResponse, error) {
+	out := new(GetKeyResponse)
+	err := c.cc.Invoke(ctx, "/KeysService/GetKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -642,6 +857,8 @@ type KeysServiceServer interface {
 	CreateKeys(context.Context, *CreateKeysRequest) (*CreateKeysResponse, error)
 	CheckPassword(context.Context, *CheckPasswordRequest) (*CheckPasswordResponse, error)
 	GetPublicKey(context.Context, *GetPublicKeyRequest) (*GetPublicKeyResponse, error)
+	GetPrivateKey(context.Context, *GetPrivateKeyRequest) (*GetPrivateKeyResponse, error)
+	GetKey(context.Context, *GetKeyRequest) (*GetKeyResponse, error)
 	EncryptPicture(KeysService_EncryptPictureServer) error
 	DecryptPicture(KeysService_DecryptPictureServer) error
 }
@@ -658,6 +875,12 @@ func (*UnimplementedKeysServiceServer) CheckPassword(ctx context.Context, req *C
 }
 func (*UnimplementedKeysServiceServer) GetPublicKey(ctx context.Context, req *GetPublicKeyRequest) (*GetPublicKeyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPublicKey not implemented")
+}
+func (*UnimplementedKeysServiceServer) GetPrivateKey(ctx context.Context, req *GetPrivateKeyRequest) (*GetPrivateKeyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPrivateKey not implemented")
+}
+func (*UnimplementedKeysServiceServer) GetKey(ctx context.Context, req *GetKeyRequest) (*GetKeyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetKey not implemented")
 }
 func (*UnimplementedKeysServiceServer) EncryptPicture(srv KeysService_EncryptPictureServer) error {
 	return status.Errorf(codes.Unimplemented, "method EncryptPicture not implemented")
@@ -720,6 +943,42 @@ func _KeysService_GetPublicKey_Handler(srv interface{}, ctx context.Context, dec
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeysServiceServer).GetPublicKey(ctx, req.(*GetPublicKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeysService_GetPrivateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPrivateKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeysServiceServer).GetPrivateKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/KeysService/GetPrivateKey",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeysServiceServer).GetPrivateKey(ctx, req.(*GetPrivateKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeysService_GetKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeysServiceServer).GetKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/KeysService/GetKey",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeysServiceServer).GetKey(ctx, req.(*GetKeyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -791,6 +1050,14 @@ var _KeysService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetPublicKey",
 			Handler:    _KeysService_GetPublicKey_Handler,
+		},
+		{
+			MethodName: "GetPrivateKey",
+			Handler:    _KeysService_GetPrivateKey_Handler,
+		},
+		{
+			MethodName: "GetKey",
+			Handler:    _KeysService_GetKey_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
