@@ -3,6 +3,8 @@ syntax = "proto3";
 service KeysService {
 	rpc CreateKeys(CreateKeysRequest) returns (CreateKeysResponse) {}
 	rpc CheckPassword(CheckPasswordRequest) returns (CheckPasswordResponse) {}
+	rpc GetPublicKey(GetPublicKeyRequest) returns (GetPublicKeyResponse) {}
+
 	rpc EncryptPicture(stream EncryptPictureRequest) returns (stream EncryptPictureResponse) {}
 	rpc DecryptPicture(stream DecryptPictureRequest) returns (stream DecryptPictureResponse) {}
 }
@@ -11,18 +13,18 @@ message CreateKeysRequest {
 	string password = 1;
 	string memberID = 2;
 }
-message CreateKeysResponse {
-	string hashKey = 2;
-}
+message CreateKeysResponse {string hashKey = 1;}
 
 
 message CheckPasswordRequest {
 	string password = 1;
 	string memberID = 2;
 }
-message CheckPasswordResponse {
-	string hashKey = 2;
-}
+message CheckPasswordResponse {string hashKey = 1;}
+
+
+message GetPublicKeyRequest {string memberID = 1;}
+message GetPublicKeyResponse {string publicKey = 1;}
 
 
 message EncryptPictureRequest {

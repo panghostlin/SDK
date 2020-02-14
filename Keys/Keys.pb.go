@@ -72,7 +72,7 @@ func (m *CreateKeysRequest) GetMemberID() string {
 }
 
 type CreateKeysResponse struct {
-	HashKey              string   `protobuf:"bytes,2,opt,name=hashKey,proto3" json:"hashKey,omitempty"`
+	HashKey              string   `protobuf:"bytes,1,opt,name=hashKey,proto3" json:"hashKey,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -158,7 +158,7 @@ func (m *CheckPasswordRequest) GetMemberID() string {
 }
 
 type CheckPasswordResponse struct {
-	HashKey              string   `protobuf:"bytes,2,opt,name=hashKey,proto3" json:"hashKey,omitempty"`
+	HashKey              string   `protobuf:"bytes,1,opt,name=hashKey,proto3" json:"hashKey,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -196,6 +196,84 @@ func (m *CheckPasswordResponse) GetHashKey() string {
 	return ""
 }
 
+type GetPublicKeyRequest struct {
+	MemberID             string   `protobuf:"bytes,1,opt,name=memberID,proto3" json:"memberID,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetPublicKeyRequest) Reset()         { *m = GetPublicKeyRequest{} }
+func (m *GetPublicKeyRequest) String() string { return proto.CompactTextString(m) }
+func (*GetPublicKeyRequest) ProtoMessage()    {}
+func (*GetPublicKeyRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d1dcf5ddb16cc394, []int{4}
+}
+
+func (m *GetPublicKeyRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetPublicKeyRequest.Unmarshal(m, b)
+}
+func (m *GetPublicKeyRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetPublicKeyRequest.Marshal(b, m, deterministic)
+}
+func (m *GetPublicKeyRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetPublicKeyRequest.Merge(m, src)
+}
+func (m *GetPublicKeyRequest) XXX_Size() int {
+	return xxx_messageInfo_GetPublicKeyRequest.Size(m)
+}
+func (m *GetPublicKeyRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetPublicKeyRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetPublicKeyRequest proto.InternalMessageInfo
+
+func (m *GetPublicKeyRequest) GetMemberID() string {
+	if m != nil {
+		return m.MemberID
+	}
+	return ""
+}
+
+type GetPublicKeyResponse struct {
+	PublicKey            string   `protobuf:"bytes,1,opt,name=publicKey,proto3" json:"publicKey,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetPublicKeyResponse) Reset()         { *m = GetPublicKeyResponse{} }
+func (m *GetPublicKeyResponse) String() string { return proto.CompactTextString(m) }
+func (*GetPublicKeyResponse) ProtoMessage()    {}
+func (*GetPublicKeyResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d1dcf5ddb16cc394, []int{5}
+}
+
+func (m *GetPublicKeyResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetPublicKeyResponse.Unmarshal(m, b)
+}
+func (m *GetPublicKeyResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetPublicKeyResponse.Marshal(b, m, deterministic)
+}
+func (m *GetPublicKeyResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetPublicKeyResponse.Merge(m, src)
+}
+func (m *GetPublicKeyResponse) XXX_Size() int {
+	return xxx_messageInfo_GetPublicKeyResponse.Size(m)
+}
+func (m *GetPublicKeyResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetPublicKeyResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetPublicKeyResponse proto.InternalMessageInfo
+
+func (m *GetPublicKeyResponse) GetPublicKey() string {
+	if m != nil {
+		return m.PublicKey
+	}
+	return ""
+}
+
 type EncryptPictureRequest struct {
 	Chunk                []byte   `protobuf:"bytes,1,opt,name=chunk,proto3" json:"chunk,omitempty"`
 	MemberID             string   `protobuf:"bytes,2,opt,name=memberID,proto3" json:"memberID,omitempty"`
@@ -208,7 +286,7 @@ func (m *EncryptPictureRequest) Reset()         { *m = EncryptPictureRequest{} }
 func (m *EncryptPictureRequest) String() string { return proto.CompactTextString(m) }
 func (*EncryptPictureRequest) ProtoMessage()    {}
 func (*EncryptPictureRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d1dcf5ddb16cc394, []int{4}
+	return fileDescriptor_d1dcf5ddb16cc394, []int{6}
 }
 
 func (m *EncryptPictureRequest) XXX_Unmarshal(b []byte) error {
@@ -255,7 +333,7 @@ func (m *EncryptPictureResponse) Reset()         { *m = EncryptPictureResponse{}
 func (m *EncryptPictureResponse) String() string { return proto.CompactTextString(m) }
 func (*EncryptPictureResponse) ProtoMessage()    {}
 func (*EncryptPictureResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d1dcf5ddb16cc394, []int{5}
+	return fileDescriptor_d1dcf5ddb16cc394, []int{7}
 }
 
 func (m *EncryptPictureResponse) XXX_Unmarshal(b []byte) error {
@@ -304,7 +382,7 @@ func (m *DecryptPictureRequest) Reset()         { *m = DecryptPictureRequest{} }
 func (m *DecryptPictureRequest) String() string { return proto.CompactTextString(m) }
 func (*DecryptPictureRequest) ProtoMessage()    {}
 func (*DecryptPictureRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d1dcf5ddb16cc394, []int{6}
+	return fileDescriptor_d1dcf5ddb16cc394, []int{8}
 }
 
 func (m *DecryptPictureRequest) XXX_Unmarshal(b []byte) error {
@@ -365,7 +443,7 @@ func (m *DecryptPictureResponse) Reset()         { *m = DecryptPictureResponse{}
 func (m *DecryptPictureResponse) String() string { return proto.CompactTextString(m) }
 func (*DecryptPictureResponse) ProtoMessage()    {}
 func (*DecryptPictureResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_d1dcf5ddb16cc394, []int{7}
+	return fileDescriptor_d1dcf5ddb16cc394, []int{9}
 }
 
 func (m *DecryptPictureResponse) XXX_Unmarshal(b []byte) error {
@@ -405,6 +483,8 @@ func init() {
 	proto.RegisterType((*CreateKeysResponse)(nil), "CreateKeysResponse")
 	proto.RegisterType((*CheckPasswordRequest)(nil), "CheckPasswordRequest")
 	proto.RegisterType((*CheckPasswordResponse)(nil), "CheckPasswordResponse")
+	proto.RegisterType((*GetPublicKeyRequest)(nil), "GetPublicKeyRequest")
+	proto.RegisterType((*GetPublicKeyResponse)(nil), "GetPublicKeyResponse")
 	proto.RegisterType((*EncryptPictureRequest)(nil), "EncryptPictureRequest")
 	proto.RegisterType((*EncryptPictureResponse)(nil), "EncryptPictureResponse")
 	proto.RegisterType((*DecryptPictureRequest)(nil), "DecryptPictureRequest")
@@ -414,28 +494,31 @@ func init() {
 func init() { proto.RegisterFile("Keys.proto", fileDescriptor_d1dcf5ddb16cc394) }
 
 var fileDescriptor_d1dcf5ddb16cc394 = []byte{
-	// 323 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x93, 0xcb, 0x4e, 0xb3, 0x50,
-	0x10, 0xc7, 0x4b, 0xfb, 0x7d, 0x5e, 0xc6, 0x4b, 0x74, 0x2c, 0x94, 0xb0, 0x32, 0x67, 0xd5, 0xd5,
-	0x89, 0x97, 0x85, 0x5b, 0x92, 0xd6, 0x98, 0x86, 0xc4, 0x34, 0xf8, 0x04, 0x14, 0x27, 0xa1, 0x21,
-	0x05, 0x3c, 0x07, 0x34, 0xbc, 0x8a, 0x4f, 0x6b, 0x28, 0x97, 0x02, 0x3d, 0xd1, 0x85, 0xee, 0x18,
-	0x26, 0xfc, 0xe6, 0x97, 0xf9, 0x0f, 0x00, 0x0e, 0xe5, 0x92, 0x27, 0x22, 0x4e, 0x63, 0xe6, 0xc0,
-	0xe5, 0x4c, 0x90, 0x97, 0x52, 0xf1, 0xce, 0xa5, 0xb7, 0x8c, 0x64, 0x8a, 0x16, 0x1c, 0x25, 0x9e,
-	0x94, 0x1f, 0xb1, 0x78, 0x35, 0xb5, 0x6b, 0x6d, 0x7a, 0xec, 0x36, 0x75, 0xd1, 0xdb, 0xd0, 0x66,
-	0x45, 0x62, 0x31, 0x37, 0x87, 0x65, 0xaf, 0xae, 0x19, 0x07, 0x6c, 0xc3, 0x64, 0x12, 0x47, 0x92,
-	0xd0, 0x84, 0xc3, 0xc0, 0x93, 0x81, 0x43, 0x79, 0xf5, 0x41, 0x5d, 0xb2, 0x67, 0x18, 0xcf, 0x02,
-	0xf2, 0xc3, 0x65, 0x05, 0xff, 0xed, 0xfc, 0x5b, 0xd0, 0x7b, 0xbc, 0x1f, 0x15, 0x16, 0xa0, 0x3f,
-	0x46, 0xbe, 0xc8, 0x93, 0x74, 0xb9, 0xf6, 0xd3, 0x4c, 0x50, 0xed, 0x30, 0x86, 0xff, 0x7e, 0x90,
-	0x45, 0xe1, 0x56, 0xe0, 0xd4, 0x2d, 0x8b, 0x6f, 0xa7, 0xdb, 0x60, 0xf4, 0x51, 0xd5, 0x78, 0x35,
-	0xeb, 0x02, 0x46, 0x61, 0x23, 0x54, 0x3c, 0xb2, 0x0c, 0xf4, 0x39, 0xfd, 0x89, 0x4c, 0x0d, 0x1f,
-	0x35, 0xf0, 0xf6, 0x0e, 0xfe, 0x75, 0x77, 0x60, 0x83, 0xd1, 0x1f, 0x5b, 0x89, 0x57, 0x14, 0x6d,
-	0x47, 0x69, 0x4c, 0x86, 0x2d, 0x93, 0xbb, 0xcf, 0x21, 0x9c, 0x14, 0x99, 0xbf, 0x90, 0x78, 0x5f,
-	0xfb, 0x84, 0x0f, 0x00, 0xbb, 0x43, 0x40, 0xe4, 0x7b, 0x27, 0x66, 0x5d, 0xf1, 0xfd, 0x4b, 0x61,
-	0x03, 0xb4, 0xe1, 0xac, 0x93, 0x20, 0xea, 0x5c, 0x75, 0x21, 0x96, 0xc1, 0x95, 0x41, 0xb3, 0x01,
-	0x3e, 0xc1, 0x79, 0x37, 0x05, 0x34, 0xb8, 0x32, 0x61, 0x6b, 0xc2, 0xd5, 0x71, 0xb1, 0xc1, 0x54,
-	0xbb, 0xd1, 0x0a, 0x50, 0x77, 0x2b, 0x68, 0x70, 0x65, 0x3a, 0xd6, 0x84, 0xab, 0xd7, 0x57, 0x82,
-	0x56, 0x07, 0xdb, 0x3f, 0xed, 0xfe, 0x2b, 0x00, 0x00, 0xff, 0xff, 0xbb, 0xe3, 0xd5, 0x94, 0x77,
-	0x03, 0x00, 0x00,
+	// 375 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x94, 0xcf, 0x4e, 0xc2, 0x40,
+	0x10, 0xc6, 0x5b, 0xf0, 0x1f, 0x23, 0x1a, 0x1d, 0xda, 0x42, 0x1a, 0x0f, 0x66, 0x4f, 0x9c, 0x36,
+	0xa2, 0x26, 0x9e, 0x4c, 0x48, 0xc0, 0x10, 0xd2, 0xc4, 0x10, 0x7c, 0x02, 0xa8, 0x93, 0x94, 0x20,
+	0xb4, 0x76, 0x5b, 0x4d, 0x1f, 0xd5, 0xb7, 0x31, 0x85, 0x6d, 0x69, 0xcb, 0x46, 0x0f, 0x7a, 0x63,
+	0x66, 0x33, 0xbf, 0xef, 0x63, 0xe6, 0x4b, 0x01, 0x1c, 0x4a, 0x04, 0x0f, 0x42, 0x3f, 0xf2, 0x99,
+	0x03, 0x97, 0x83, 0x90, 0x66, 0x11, 0xa5, 0xbd, 0x29, 0xbd, 0xc7, 0x24, 0x22, 0xb4, 0xe1, 0x24,
+	0x98, 0x09, 0xf1, 0xe9, 0x87, 0xaf, 0x1d, 0xfd, 0x5a, 0xef, 0x36, 0xa6, 0x79, 0x9d, 0xbe, 0xad,
+	0x68, 0x35, 0xa7, 0x70, 0x3c, 0xec, 0xd4, 0xb6, 0x6f, 0x59, 0xcd, 0x38, 0x60, 0x11, 0x26, 0x02,
+	0x7f, 0x2d, 0x08, 0x3b, 0x70, 0xec, 0xcd, 0x84, 0xe7, 0x50, 0x22, 0x61, 0x59, 0xc9, 0x9e, 0xc1,
+	0x18, 0x78, 0xe4, 0x2e, 0x27, 0x12, 0xfe, 0x57, 0xfd, 0x1e, 0x98, 0x15, 0xde, 0xaf, 0x16, 0x7a,
+	0xd0, 0x1a, 0x51, 0x34, 0x89, 0xe7, 0x6f, 0x0b, 0xd7, 0xa1, 0xa4, 0xe0, 0x20, 0x57, 0xd1, 0x2b,
+	0x2a, 0xf7, 0x60, 0x94, 0x47, 0xa4, 0xc8, 0x15, 0x34, 0x82, 0xac, 0x29, 0x87, 0x76, 0x0d, 0x36,
+	0x06, 0xf3, 0x69, 0xed, 0x86, 0x49, 0x10, 0x4d, 0x16, 0x6e, 0x14, 0x87, 0x94, 0x49, 0x19, 0x70,
+	0xe8, 0x7a, 0xf1, 0x7a, 0xb9, 0x19, 0x69, 0x4e, 0xb7, 0xc5, 0x8f, 0x7f, 0xb3, 0x0f, 0x56, 0x15,
+	0x25, 0x2d, 0xa8, 0x59, 0x17, 0x50, 0x5f, 0x52, 0x22, 0x31, 0xe9, 0x4f, 0x16, 0x83, 0x39, 0xa4,
+	0x7f, 0x31, 0x93, 0xc1, 0xeb, 0x39, 0xbc, 0xb8, 0xec, 0x83, 0xf2, 0xb2, 0xfb, 0x60, 0x55, 0x65,
+	0xa5, 0x71, 0x49, 0xd1, 0x77, 0x94, 0xdc, 0x49, 0xad, 0xe0, 0xe4, 0xf6, 0xab, 0x06, 0xa7, 0x69,
+	0xb8, 0x5e, 0x28, 0xfc, 0x58, 0xb8, 0x84, 0x0f, 0x00, 0xbb, 0xc4, 0x21, 0xf2, 0xbd, 0x2c, 0xdb,
+	0x2d, 0xbe, 0x1f, 0x49, 0xa6, 0x61, 0x1f, 0xce, 0x4a, 0x51, 0x41, 0x93, 0xab, 0xa2, 0x68, 0x5b,
+	0x5c, 0x99, 0x28, 0xa6, 0xe1, 0x23, 0x34, 0x8b, 0x31, 0x40, 0x83, 0x2b, 0x82, 0x64, 0x9b, 0x5c,
+	0x95, 0x15, 0xa6, 0xe1, 0x08, 0xce, 0xcb, 0x47, 0x44, 0x8b, 0x2b, 0x03, 0x62, 0xb7, 0xb9, 0xfa,
+	0xda, 0x4c, 0xeb, 0xea, 0x37, 0x7a, 0x0a, 0x2a, 0x2f, 0x15, 0x2d, 0xae, 0x3c, 0xae, 0xdd, 0xe6,
+	0xea, 0xed, 0x6f, 0x41, 0xf3, 0xa3, 0xcd, 0x17, 0xe1, 0xee, 0x3b, 0x00, 0x00, 0xff, 0xff, 0x78,
+	0x0e, 0x30, 0xaa, 0x1f, 0x04, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -452,6 +535,7 @@ const _ = grpc.SupportPackageIsVersion4
 type KeysServiceClient interface {
 	CreateKeys(ctx context.Context, in *CreateKeysRequest, opts ...grpc.CallOption) (*CreateKeysResponse, error)
 	CheckPassword(ctx context.Context, in *CheckPasswordRequest, opts ...grpc.CallOption) (*CheckPasswordResponse, error)
+	GetPublicKey(ctx context.Context, in *GetPublicKeyRequest, opts ...grpc.CallOption) (*GetPublicKeyResponse, error)
 	EncryptPicture(ctx context.Context, opts ...grpc.CallOption) (KeysService_EncryptPictureClient, error)
 	DecryptPicture(ctx context.Context, opts ...grpc.CallOption) (KeysService_DecryptPictureClient, error)
 }
@@ -476,6 +560,15 @@ func (c *keysServiceClient) CreateKeys(ctx context.Context, in *CreateKeysReques
 func (c *keysServiceClient) CheckPassword(ctx context.Context, in *CheckPasswordRequest, opts ...grpc.CallOption) (*CheckPasswordResponse, error) {
 	out := new(CheckPasswordResponse)
 	err := c.cc.Invoke(ctx, "/KeysService/CheckPassword", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *keysServiceClient) GetPublicKey(ctx context.Context, in *GetPublicKeyRequest, opts ...grpc.CallOption) (*GetPublicKeyResponse, error) {
+	out := new(GetPublicKeyResponse)
+	err := c.cc.Invoke(ctx, "/KeysService/GetPublicKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -548,6 +641,7 @@ func (x *keysServiceDecryptPictureClient) Recv() (*DecryptPictureResponse, error
 type KeysServiceServer interface {
 	CreateKeys(context.Context, *CreateKeysRequest) (*CreateKeysResponse, error)
 	CheckPassword(context.Context, *CheckPasswordRequest) (*CheckPasswordResponse, error)
+	GetPublicKey(context.Context, *GetPublicKeyRequest) (*GetPublicKeyResponse, error)
 	EncryptPicture(KeysService_EncryptPictureServer) error
 	DecryptPicture(KeysService_DecryptPictureServer) error
 }
@@ -561,6 +655,9 @@ func (*UnimplementedKeysServiceServer) CreateKeys(ctx context.Context, req *Crea
 }
 func (*UnimplementedKeysServiceServer) CheckPassword(ctx context.Context, req *CheckPasswordRequest) (*CheckPasswordResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckPassword not implemented")
+}
+func (*UnimplementedKeysServiceServer) GetPublicKey(ctx context.Context, req *GetPublicKeyRequest) (*GetPublicKeyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPublicKey not implemented")
 }
 func (*UnimplementedKeysServiceServer) EncryptPicture(srv KeysService_EncryptPictureServer) error {
 	return status.Errorf(codes.Unimplemented, "method EncryptPicture not implemented")
@@ -605,6 +702,24 @@ func _KeysService_CheckPassword_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(KeysServiceServer).CheckPassword(ctx, req.(*CheckPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _KeysService_GetPublicKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPublicKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(KeysServiceServer).GetPublicKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/KeysService/GetPublicKey",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(KeysServiceServer).GetPublicKey(ctx, req.(*GetPublicKeyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -672,6 +787,10 @@ var _KeysService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CheckPassword",
 			Handler:    _KeysService_CheckPassword_Handler,
+		},
+		{
+			MethodName: "GetPublicKey",
+			Handler:    _KeysService_GetPublicKey_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
