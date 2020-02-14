@@ -35,7 +35,7 @@ message LoginMemberResponse {
 }
 
 
-message GetMemberRequest {string memberID = 1;}
+message GetMemberRequest {string memberID = 1; string HashKey = 2;}
 message GetMemberResponse {Member member = 1;}
 
 
