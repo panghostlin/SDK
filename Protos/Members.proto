@@ -22,7 +22,7 @@ message CreateMemberRequest {
 message CreateMemberResponse {
 	string memberID = 1;
 	Cookie accessToken = 2;
-	string HashKey = 3;
+	Keys keys = 3;
 }
 
 
@@ -33,7 +33,7 @@ message LoginMemberRequest {
 message LoginMemberResponse {
 	string memberID = 1;
 	Cookie accessToken = 2;
-	string HashKey = 3;
+	Keys keys = 3;
 }
 
 
@@ -68,4 +68,10 @@ message	CryptedPrivate {
 	string Key = 1; //base64 encrypted key
 	string Salt = 2; //base64 salt
 	string IV = 3; //base64 iv
+}
+message	Keys {
+	string privateKey = 1; //base64 encrypted key
+	string privateSalt = 2; //base64 salt
+	string privateIV = 3; //base64 iv
+	string publicKey = 4; //base64 key
 }
