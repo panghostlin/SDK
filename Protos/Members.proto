@@ -16,6 +16,8 @@ service MembersService {
 message CreateMemberRequest {
 	string email = 1;
 	string password = 2;
+	string publicKey = 3;
+	CryptedPrivate privateKey = 4;
 }
 message CreateMemberResponse {
 	string memberID = 1;
@@ -61,4 +63,9 @@ message	Member {
 	string email = 2;
 	string publicKey = 3;
 	string privateKey = 4;
+}
+message	CryptedPrivate {
+	string Key = 1; //base64 encrypted key
+	string Salt = 2; //base64 salt
+	string IV = 3; //base64 iv
 }
