@@ -22,6 +22,7 @@ message UploadPictureRequest {
 	string memberID = 2;
 	string albumID = 3;
 	UploadPictureRequest_Content content = 4;
+	pictureCrypto crypto = 5;
 }
 message UploadPictureResponse {
 	int32 step = 1;
@@ -32,13 +33,13 @@ message UploadPictureResponse {
 message DownloadPictureRequest {
 	string pictureID = 1;
 	string pictureSize = 2;
-	string hashKey = 3;
 }
 message DownloadPictureResponse {
 	bytes chunk = 1;
 	string contentType = 2;
 	uint32 width = 3;
 	uint32 height = 4;
+	pictureCrypto crypto = 5;
 }
 
 message DeletePicturesRequest {repeated string picturesID = 1; string memberID = 2;}
@@ -67,6 +68,10 @@ message	UploadPictureRequest_Content {
 	string name = 1;
 	string type = 2;
 	string originalTime = 3;
+}
+message	pictureCrypto {
+	string key = 1;
+	string IV = 2;
 }
 message ListPictures_Wrapper {
 	repeated ListPictures_Content picturesAlt = 1;
