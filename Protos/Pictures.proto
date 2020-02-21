@@ -68,6 +68,8 @@ message	UploadPictureRequest_Content {
 	string name = 1;
 	string type = 2;
 	string originalTime = 3;
+	int32 width = 4;
+	int32 height = 5;
 }
 message	pictureCrypto {
 	string key = 1;
