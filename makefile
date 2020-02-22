@@ -15,11 +15,9 @@ build:
 
 	@-protoc --proto_path=./Protos --go_out=plugins=grpc,import_path=pictures:./Pictures Albums.proto
 	@-protoc --proto_path=./Protos --go_out=plugins=grpc,import_path=pictures:./Pictures Pictures.proto
-	@-protoc --proto_path=./Protos --go_out=plugins=grpc,import_path=keys:./Keys Keys.proto
 	@-protoc --proto_path=./Protos --go_out=plugins=grpc,import_path=members:./Members Members.proto
 
 clear:
 	@-echo "Cleaning PB.GO"
-	@-rm ./Keys/*.pb.go
 	@-rm ./Pictures/*.pb.go
 	@-rm ./Members/*.pb.go
