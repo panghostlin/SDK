@@ -25,9 +25,8 @@ message UploadPictureRequest {
 	pictureCrypto crypto = 5;
 }
 message UploadPictureResponse {
-	int32 step = 1;
-	ListPictures_Content picture = 2;
-	bool success = 3;
+	ListPictures_Content picture = 1;
+	bool success = 2;
 }
 
 message DownloadPictureRequest {
