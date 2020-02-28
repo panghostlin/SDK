@@ -23,11 +23,13 @@ message UploadPictureRequest {
 	string albumID = 3;
 	UploadPictureRequest_Content content = 4;
 	pictureCrypto crypto = 5;
+	bool isLastInBatch = 6;
 }
 message UploadPictureResponse {
 	int32 step = 1;
 	ListPictures_Content picture = 2;
-	bool success = 3;
+	bool isLastInBatch = 3;
+	bool success = 4;
 }
 
 message DownloadPictureRequest {
