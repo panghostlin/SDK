@@ -70,6 +70,7 @@ message	UploadPictureRequest_Content {
 	string sizeType = 4;
 	int32 width = 5;
 	int32 height = 6;
+	string groupID = 7;
 }
 message	pictureCrypto {
 	string key = 1;
