@@ -18,10 +18,8 @@ service AlbumsService {
 message CreateAlbumRequest {
 	string memberID = 1;
 	string name = 2;
-	string coverPicture0ID = 3;
-	string coverPicture1ID = 4;
-	string coverPicture2ID = 5;
-	repeated string pictures = 6;
+	string coverPicture = 3;
+	repeated string pictures = 4;
 }
 message CreateAlbumResponse {
 	string albumID = 1;
@@ -37,9 +35,7 @@ message GetAlbumResponse {GetAlbumsResponse_Content album = 1;}
 message SetAlbumCoverRequest {
 	string albumID = 1;
 	string memberID = 2;
-	string coverPicture0ID = 3;
-	string coverPicture1ID = 4;
-	string coverPicture2ID = 5;
+	string coverPicture = 3;
 }
 message SetAlbumCoverResponse {string albumID = 1;}
 
@@ -62,9 +58,7 @@ message	ListAlbumsResponse_Content {
 	string albumID = 1;
 	string name = 2;
 	int32 NumberOfPictures = 3;
-	string coverPicture0ID = 4;
-	string coverPicture1ID = 5;
-	string coverPicture2ID = 6;
+	string coverPicture = 4;
 }
 message	GetAlbumsResponse_Content {
 	string albumID = 1;
