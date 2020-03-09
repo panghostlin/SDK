@@ -51,7 +51,7 @@ message GetMemberRequest {
 message GetMemberResponse {
 	string memberID = 1;
 	string email = 2;
-	float32 usedStorage = 3;
+	float usedStorage = 3;
 }
 
 
