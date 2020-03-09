@@ -49,8 +49,9 @@ message GetMemberRequest {
 	string memberID = 1;
 }
 message GetMemberResponse {
-	string email = 1;
-	uint32 usedStorage = 2;
+	string memberID = 1;
+	string email = 2;
+	float32 usedStorage = 3;
 }
 
 
