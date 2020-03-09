@@ -7,6 +7,7 @@ service MembersService {
 	rpc CreateMember(CreateMemberRequest) returns (CreateMemberResponse) {}
 	rpc LoginMember(LoginMemberRequest) returns (LoginMemberResponse) {}
 	rpc CheckAccessToken(CheckAccessTokenRequest) returns (CheckAccessTokenResponse) {}
+	rpc GetMember(GetMemberRequest) returns (GetMemberResponse) {}
 }
 
 /**************************************************************************
@@ -44,6 +45,14 @@ message CheckAccessTokenResponse {
 	Cookie accessToken = 3;
 }
 
+message GetMemberRequest {
+	string memberID = 1;
+}
+message GetMemberResponse {
+	string email = 1;
+	uint32 usedStorage = 2;
+}
+
 
 /**************************************************************************
 **	HELPERS
@@ -51,12 +60,6 @@ message CheckAccessTokenResponse {
 message	Cookie {
 	string value = 1;
 	int64 expiration = 2;
-}
-message	Member {
-	string ID = 1;
-	string email = 2;
-	string publicKey = 3;
-	string privateKey = 4;
 }
 message	CryptedPrivate {
 	string Key = 1; //base64 encrypted key
