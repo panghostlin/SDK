@@ -9,6 +9,7 @@ service PicturesService {
 	rpc DeletePictures(DeletePicturesRequest) returns (DeletePicturesResponse);
 
 	rpc SetPicturesAlbum(SetPicturesAlbumRequest) returns (SetPicturesAlbumResponse);
+	rpc SetPicturesDate(SetPicturesDateRequest) returns (SetPicturesDateResponse);
 
 	rpc ListPicturesByMemberID(ListPicturesByMemberIDRequest) returns (ListPicturesByMemberIDResponse);
 	rpc ListPicturesByAlbumID(ListPicturesByAlbumIDRequest) returns (ListPicturesByAlbumIDResponse);
@@ -16,6 +17,9 @@ service PicturesService {
 
 /**************************************************************************
 **	RPCS
+**	Request & Response for the UploadPicture (stream) service
+**	Purpose : Upload a chunck of data (the picture) and save it in the
+**	database
 **************************************************************************/
 message UploadPictureRequest {
 	bytes chunk = 1;
@@ -29,6 +33,12 @@ message UploadPictureResponse {
 	bool success = 2;
 }
 
+/**************************************************************************
+**	RPCS
+**	Request & Response for the DownloadPicture (stream) service
+**	Purpose : download a chunck of data (the picture) to stream it to the
+**	client
+**************************************************************************/
 message DownloadPictureRequest {
 	string pictureID = 1;
 	string pictureSize = 2;
@@ -41,9 +51,17 @@ message DownloadPictureResponse {
 	pictureCrypto crypto = 5;
 }
 
+/**************************************************************************
+**	RPCS
+**	Request & Response for the DeletePictures service
+**************************************************************************/
 message DeletePicturesRequest {repeated string picturesID = 1; string memberID = 2;}
 message DeletePicturesResponse {bool success = 1;}
 
+/**************************************************************************
+**	RPCS
+**	Request & Response for the SetPicturesAlbum service
+**************************************************************************/
 message SetPicturesAlbumRequest {
 	repeated string groupIDs = 1;
 	string albumID = 2;
@@ -51,12 +69,31 @@ message SetPicturesAlbumRequest {
 }
 message SetPicturesAlbumResponse {bool success = 1;}
 
+/**************************************************************************
+**	RPCS
+**	Request & Response for the SetPicturesDate service
+**************************************************************************/
+message SetPicturesDateRequest {
+	repeated string groupIDs = 1;
+	string newDate = 2;
+	string memberID = 3;
+}
+message SetPicturesDateResponse {bool success = 1;}
+
+/**************************************************************************
+**	RPCS
+**	Request & Response for the ListPicturesByMemberID service
+**************************************************************************/
 message ListPicturesByMemberIDRequest {string memberID = 1;}
 message ListPicturesByMemberIDResponse {
 	repeated ListPictures_Content pictures = 1;
 	map<string, ListPictures_Wrapper> picturesAlt = 2;
 }
 
+/**************************************************************************
+**	RPCS
+**	Request & Response for the ListPicturesByAlbumID service
+**************************************************************************/
 message ListPicturesByAlbumIDRequest {string memberID = 1; string albumID = 2;}
 message ListPicturesByAlbumIDResponse {repeated ListPictures_Content pictures = 1;}
 
