@@ -7,6 +7,7 @@ service PicturesService {
 	rpc UploadPicture(stream UploadPictureRequest) returns (stream UploadPictureResponse);
 	rpc DownloadPicture(DownloadPictureRequest) returns (stream DownloadPictureResponse);
 	rpc DeletePictures(DeletePicturesRequest) returns (DeletePicturesResponse);
+	rpc DownloadPreview(DownloadPreviewRequest) returns (DownloadPreviewResponse);
 
 	rpc SetPicturesAlbum(SetPicturesAlbumRequest) returns (SetPicturesAlbumResponse);
 	rpc SetPicturesDate(SetPicturesDateRequest) returns (SetPicturesDateResponse);
@@ -58,6 +59,13 @@ message DownloadPictureResponse {
 **************************************************************************/
 message DeletePicturesRequest {repeated string picturesID = 1; string memberID = 2;}
 message DeletePicturesResponse {bool success = 1;}
+
+/**************************************************************************
+**	RPCS
+**	Request & Response for the DownloadPreview service
+**************************************************************************/
+message DownloadPreviewRequest {string pictureID = 1;}
+message DownloadPreviewResponse {string preview = 1;}
 
 /**************************************************************************
 **	RPCS
